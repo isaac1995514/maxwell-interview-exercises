@@ -1,0 +1,13 @@
+.price-calculator-root {
+  display: flex;
+
+  .grocery-items-menu-wrapper {
+    width: 80%;
+    overflow-y: auto;
+  }
+
+  .selection-side-menu-wrapper {
+    width: 20%;
+    min-width: 250px;
+  }
+}

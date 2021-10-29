@@ -28,7 +28,6 @@ function ItemCard(props: ItemCardProps) {
   return (
     <div
       className="item-card-wrapper"
-      style={{ height: 300, width: 250 }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

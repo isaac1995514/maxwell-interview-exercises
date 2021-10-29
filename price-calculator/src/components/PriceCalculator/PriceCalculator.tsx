@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 
 /* Components */
-import { GroceryItemMenu } from "..";
+import { GroceryItemMenu, SelectionSideMenu } from "..";
 
 /* Types */
 import { GroceryItemList, SelectedItemMap } from "../../types";
 
 /* Services */
 import { getGroceryItems } from "../../apis";
+
+import "./style.scss";
 
 function PriceCalculator() {
   const [groceryItemList, setGroceryItemList] = useState<GroceryItemList>([]);
@@ -32,11 +34,15 @@ function PriceCalculator() {
   };
 
   return (
-    <div className="price-calculator-root">
+    <div
+      className="price-calculator-root"
+      style={{ backgroundColor: "gray", height: "100%" }}
+    >
       <GroceryItemMenu
         itemList={groceryItemList}
         onItemClicked={handleItemClicked}
       />
+      <SelectionSideMenu selectedItems={selectedItemMap} />
     </div>
   );
 }
