@@ -1,20 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Image } from "semantic-ui-react";
 
 /* Types */
 import { ItemCardProps } from "./type";
 
+import "./style.scss";
+
 function ItemCard(props: ItemCardProps) {
-  const { itemName, unitPrice, salePrice, saleUnit } = props;
+  const { id, itemName, unitPrice, salePrice, saleUnit, onItemClicked } = props;
+
+  const [isItemHovered, setIsItemHovered] = useState(false);
 
   const isItemOnSale = salePrice !== undefined && saleUnit !== undefined;
 
-  const handleClick = () => {};
+  const handleClick = () => {
+    onItemClicked(id);
+  };
+
+  const handleMouseEnter = () => {
+    setIsItemHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsItemHovered(false);
+  };
 
   return (
     <div
       className="item-card-wrapper"
-      style={{ margin: 100, height: 300, width: 250 }}
+      style={{ height: 300, width: 250 }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <Card onClick={handleClick} fluid>
         <Image
@@ -26,9 +42,11 @@ function ItemCard(props: ItemCardProps) {
           <Card.Header>{itemName}</Card.Header>
           <Card.Meta>Unit Price: ${unitPrice}</Card.Meta>
         </Card.Content>
-        <Card.Content extra textAlign="center">
-          {isItemOnSale && `Sales: $${salePrice.toFixed(2)} for ${saleUnit}`}
-        </Card.Content>
+        {isItemOnSale && (
+          <Card.Content className="sale-message" extra textAlign="center">
+            {`Sales: $${salePrice.toFixed(2)} for ${saleUnit}`}
+          </Card.Content>
+        )}
       </Card>
     </div>
   );
