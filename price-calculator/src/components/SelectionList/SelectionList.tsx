@@ -1,10 +1,13 @@
 import React from "react";
 
 /* Components */
-import { Item, Button, Label } from "semantic-ui-react";
+import { List, Button, Image } from "semantic-ui-react";
 
 /* Types */
 import { SelectionListProps } from "./type";
+
+/* Service */
+import { getItemPrice } from "../../services";
 
 import "./style.scss";
 
@@ -18,19 +21,17 @@ function SelectionList({
 
     if (!item) return null;
 
-    const isSalesAvailable =
-      item.salePrice !== undefined && item.saleUnit !== undefined;
-    const isLabelApplied =
-      isSalesAvailable && itemCount >= (item?.saleUnit || Infinity);
+    const itemPrice = getItemPrice(item.id, itemMap, selectedItems);
+    const formattedItemPrice = itemPrice.toFixed(2);
 
     return (
-      <Item key={item.id} className="selected-item">
-        <Item.Image size="mini" src={item.imgSrc} />
-        <Item.Description>{`${item?.itemName} x ${itemCount}`}</Item.Description>
-        {isLabelApplied && (
-          <Item.Extra>{<Label color="red">Sales</Label>}</Item.Extra>
-        )}
-        <Item.Extra>
+      <List.Item className="selected-item">
+        <div className="selected-item__info">
+          <Image size="mini" src={item.imgSrc} />
+          <div>{`${item?.itemName} x ${itemCount}`}</div>
+          <div>{`$ ${formattedItemPrice}`}</div>
+        </div>
+        <div className="selected-item__control">
           <Button
             floated="right"
             circular
@@ -39,12 +40,12 @@ function SelectionList({
             size="mini"
             onClick={() => onItemRemoval(item.id)}
           />
-        </Item.Extra>
-      </Item>
+        </div>
+      </List.Item>
     );
   });
 
-  return <Item.Group relaxed>{itemNodes}</Item.Group>;
+  return <List className="selected-item-list">{itemNodes}</List>;
 }
 
 export default SelectionList;
