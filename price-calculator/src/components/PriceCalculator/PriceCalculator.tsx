@@ -35,6 +35,10 @@ function PriceCalculator() {
     fetchGroceryData();
   }, []);
 
+  /**
+   * Increment of item selection by itemId
+   * @param itemId
+   */
   const handleItemClicked = (itemId: string) => {
     setSelectedItemMap((prevSelection) => ({
       ...prevSelection,
@@ -42,6 +46,10 @@ function PriceCalculator() {
     }));
   };
 
+  /**
+   * Decrement of item selection by itemId
+   * @param itemId
+   */
   const handleItemRemoval = (itemId: string) => {
     setSelectedItemMap((prevSelection) => {
       const remain = prevSelection[itemId] - 1;

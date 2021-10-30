@@ -1,4 +1,6 @@
 import React, { KeyboardEvent } from "react";
+
+/* Components */
 import { Card, Image } from "semantic-ui-react";
 
 /* Types */
