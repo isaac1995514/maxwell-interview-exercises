@@ -1,8 +1,8 @@
-import { GroceryItemList } from "../../types";
+import { GroceryItemMap } from "../../types";
 
 export type onItemClickedCallback = (itemId: string) => void;
 
 export interface GroceryItemMenuProps {
-  itemList: GroceryItemList;
+  itemMap: GroceryItemMap | null;
   onItemClicked: onItemClickedCallback;
 }

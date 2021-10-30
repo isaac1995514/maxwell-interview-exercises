@@ -1,3 +1,7 @@
+import { GroceryItem } from ".";
+
 export interface SelectedItemMap {
-  [id: string]: number;
+  [itemId: string]: number;
 }
+
+export type GroceryItemMap = Map<string, GroceryItem>;

@@ -9,11 +9,11 @@ import { GroceryItemMenuProps } from "./type";
 
 import "./style.scss";
 
-function GroceryItemWrapper({ itemList, onItemClicked }: GroceryItemMenuProps) {
-  if (itemList.length === 0) return <Loader />;
+function GroceryItemWrapper({ itemMap, onItemClicked }: GroceryItemMenuProps) {
+  if (!itemMap) return <Loader />;
 
-  const items = itemList.map((item) => (
-    <ItemCard key={item.id} onItemClicked={onItemClicked} {...item} />
+  const items = [...itemMap].map(([itemId, item]) => (
+    <ItemCard key={itemId} onItemClicked={onItemClicked} {...item} />
   ));
 
   return <div className="grocery-items-menu-wrapper">{items}</div>;

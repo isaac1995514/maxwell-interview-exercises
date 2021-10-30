@@ -4,22 +4,26 @@ import React, { useEffect, useState } from "react";
 import { GroceryItemMenu, SelectionSideMenu } from "..";
 
 /* Types */
-import { GroceryItemList, SelectedItemMap } from "../../types";
+import { GroceryItemMap, SelectedItemMap } from "../../types";
 
 /* Services */
 import { getGroceryItems } from "../../apis";
+import { transformGroceryItemList } from "../../services";
 
 import "./style.scss";
 
 function PriceCalculator() {
-  const [groceryItemList, setGroceryItemList] = useState<GroceryItemList>([]);
+  const [groceryItemMap, setGroceryItemMap] = useState<GroceryItemMap | null>(
+    null
+  );
   const [selectedItemMap, setSelectedItemMap] = useState<SelectedItemMap>({});
 
   useEffect(() => {
     const fetchGroceryData = async () => {
       setTimeout(async () => {
         const response = await getGroceryItems();
-        setGroceryItemList(response);
+        const tResponse = transformGroceryItemList(response);
+        setGroceryItemMap(tResponse);
       }, 1000);
     };
 
@@ -33,16 +37,39 @@ function PriceCalculator() {
     }));
   };
 
+  const handleItemRemoval = (itemId: string) => {
+    setSelectedItemMap((prevSelection) => {
+      const remain = prevSelection[itemId] - 1;
+
+      const { [itemId]: target, ...rest } = prevSelection;
+
+      if (remain === 0) {
+        return {
+          ...rest,
+        };
+      } else {
+        return {
+          ...prevSelection,
+          [itemId]: remain,
+        };
+      }
+    });
+  };
+
   return (
     <div
       className="price-calculator-root"
       style={{ backgroundColor: "gray", height: "100%" }}
     >
       <GroceryItemMenu
-        itemList={groceryItemList}
+        itemMap={groceryItemMap}
         onItemClicked={handleItemClicked}
       />
-      <SelectionSideMenu selectedItems={selectedItemMap} />
+      <SelectionSideMenu
+        itemMap={groceryItemMap}
+        selectedItems={selectedItemMap}
+        onItemRemoval={handleItemRemoval}
+      />
     </div>
   );
 }
