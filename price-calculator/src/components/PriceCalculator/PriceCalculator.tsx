@@ -57,10 +57,7 @@ function PriceCalculator() {
   };
 
   return (
-    <div
-      className="price-calculator-root"
-      style={{ backgroundColor: "gray", height: "100%" }}
-    >
+    <main className="price-calculator-root">
       <GroceryItemMenu
         itemMap={groceryItemMap}
         onItemClicked={handleItemClicked}
@@ -70,7 +67,7 @@ function PriceCalculator() {
         selectedItems={selectedItemMap}
         onItemRemoval={handleItemRemoval}
       />
-    </div>
+    </main>
   );
 }
 

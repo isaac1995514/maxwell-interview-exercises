@@ -1,5 +1,10 @@
+@import "../../variables.scss";
+
 .price-calculator-root {
   display: flex;
+  min-height: 400px;
+  height: 100%;
+  background-color: $background-green;
 
   .grocery-items-menu-wrapper {
     width: 80%;

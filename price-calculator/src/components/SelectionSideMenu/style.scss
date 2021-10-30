@@ -1,3 +1,29 @@
+@import "../../variables.scss";
+
 .selection-side-menu-wrapper {
   background-color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .selected-item-list {
+    height: 90%;
+    padding: 10px 0px !important;
+    margin-bottom: 0px !important;
+  }
+
+  .price-card {
+    height: 10%;
+    min-height: 100px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba($tile-green, 0.3);
+
+    .info {
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+  }
 }
