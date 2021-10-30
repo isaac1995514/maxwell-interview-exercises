@@ -6,7 +6,9 @@
   height: 100%;
   background-color: $background-green;
 
-  .grocery-items-menu-wrapper {
+  // Actually Menu Screen and Placeholder should have the same layout
+  .grocery-items-menu-wrapper,
+  .menu-placeholder-wrapper {
     width: 80%;
     overflow-y: auto;
   }

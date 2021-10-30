@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useMemo } from "react";
 
 /* Components */
 import { ItemCard } from "..";
-import { Loader } from "semantic-ui-react";
 
 /* Types */
 import { GroceryItemMenuProps } from "./type";
@@ -10,11 +9,12 @@ import { GroceryItemMenuProps } from "./type";
 import "./style.scss";
 
 function GroceryItemWrapper({ itemMap, onItemClicked }: GroceryItemMenuProps) {
-  if (!itemMap) return <Loader />;
-
-  const items = [...itemMap].map(([itemId, item]) => (
-    <ItemCard key={itemId} onItemClicked={onItemClicked} {...item} />
-  ));
+  // Prevent item cards from rendering unless the itemMap changed
+  const items = useMemo(() => {
+    return [...itemMap].map(([itemId, item]) => (
+      <ItemCard key={itemId} onItemClicked={onItemClicked} {...item} />
+    ));
+  }, [itemMap]);
 
   return <div className="grocery-items-menu-wrapper">{items}</div>;
 }

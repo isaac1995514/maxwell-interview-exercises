@@ -3,3 +3,4 @@ export * from "./GroceryItemMenu";
 export * from "./PriceCalculator";
 export * from "./SelectionSideMenu";
 export * from "./SelectionList";
+export * from "./MenuPlaceholder";
