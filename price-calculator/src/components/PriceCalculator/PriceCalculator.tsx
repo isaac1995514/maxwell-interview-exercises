@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 
 /* Components */
-import { GroceryItemMenu, SelectionSideMenu, MenuPlaceholder } from "..";
+import {
+  GroceryItemMenu,
+  SelectionSideMenu,
+  MenuPlaceholder,
+  ListPlaceholder,
+} from "..";
 
 /* Types */
 import { GroceryItemMap, SelectedItemMap } from "../../types";
@@ -66,11 +71,15 @@ function PriceCalculator() {
       ) : (
         <MenuPlaceholder />
       )}
-      <SelectionSideMenu
-        itemMap={groceryItemMap}
-        selectedItems={selectedItemMap}
-        onItemRemoval={handleItemRemoval}
-      />
+      {groceryItemMap ? (
+        <SelectionSideMenu
+          itemMap={groceryItemMap}
+          selectedItems={selectedItemMap}
+          onItemRemoval={handleItemRemoval}
+        />
+      ) : (
+        <ListPlaceholder />
+      )}
     </main>
   );
 }

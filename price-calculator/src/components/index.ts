@@ -4,3 +4,4 @@ export * from "./PriceCalculator";
 export * from "./SelectionSideMenu";
 export * from "./SelectionList";
 export * from "./MenuPlaceholder";
+export * from "./ListPlaceholder";

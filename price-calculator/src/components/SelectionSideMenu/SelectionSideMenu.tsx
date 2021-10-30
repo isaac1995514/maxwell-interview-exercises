@@ -14,8 +14,6 @@ function SelectionSideMenu({
   itemMap,
   onItemRemoval,
 }: SelectionSideMenuProps) {
-  if (!itemMap) return null;
-
   const total = getTotalPrice(itemMap, selectedItems);
   const discountedTotal = getDiscountedPrice(itemMap, selectedItems);
   const formattedTotal = total.toFixed(2);
