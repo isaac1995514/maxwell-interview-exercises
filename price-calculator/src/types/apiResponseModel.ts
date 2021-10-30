@@ -4,6 +4,7 @@ export interface GroceryItem {
   unitPrice: number;
   salePrice?: number;
   saleUnit?: number;
+  imgSrc: string;
 }
 
 export type GroceryItemList = GroceryItem[];

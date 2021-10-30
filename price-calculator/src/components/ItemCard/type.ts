@@ -6,5 +6,6 @@ export interface ItemCardProps {
   unitPrice: number;
   salePrice?: number;
   saleUnit?: number;
+  imgSrc: string;
   onItemClicked: onItemClickedCallback;
 }
