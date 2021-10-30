@@ -2,6 +2,13 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+This project is maxwell's interview exercise 02
+
+To run it on the dev server
+
+1. yarn install
+2. yarn start
+
 ## Available Scripts
 
 In the project directory, you can run:
