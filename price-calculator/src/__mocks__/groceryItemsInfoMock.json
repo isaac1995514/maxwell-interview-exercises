@@ -4,23 +4,27 @@
     "itemName": "Milk",
     "unitPrice": 3.97,
     "salePrice": 5,
-    "saleUnit": 2
+    "saleUnit": 2,
+    "imgSrc": "https://cdn-icons-png.flaticon.com/512/1180/1180737.png"
   },
   {
     "id": "10d96e26-c119-4783-8777-63a07758e664",
     "itemName": "Bread",
     "unitPrice": 2.17,
     "salePrice": 6,
-    "saleUnit": 3
+    "saleUnit": 3,
+    "imgSrc": "https://cdn-icons-png.flaticon.com/512/1256/1256436.png"
   },
   {
     "id": "8b063894-1467-4b8e-b9fb-7ca6b74eef15",
     "itemName": "Banana",
-    "unitPrice": 0.99
+    "unitPrice": 0.99,
+    "imgSrc": "https://cdn-icons-png.flaticon.com/512/1135/1135468.png"
   },
   {
     "id": "ac9f074d-4c20-48f0-bab3-c9a181a10fb9",
     "itemName": "Apple",
-    "unitPrice": 0.89
+    "unitPrice": 0.89,
+    "imgSrc": "https://cdn-icons.flaticon.com/png/512/3137/premium/3137044.png?token=exp=1635554641~hmac=4798c1a6afd1a8a6ba6af54b188184f7"
   }
 ]
