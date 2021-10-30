@@ -30,9 +30,9 @@ function SelectionSideMenu({
         onItemRemoval={onItemRemoval}
       />
       <div className="price-card">
-        <div className="total-price info">{`Total Price: ${formattedTotal}`}</div>
-        <div className="discount info">{`Discounted Total: ${formattedDiscountedTotal}`}</div>
-        <div className="saved info">{`You Saved: ${formattedSaved}`}</div>
+        <div className="total-price info">{`Total Price: $${formattedTotal}`}</div>
+        <div className="discount info">{`Discounted Total: $${formattedDiscountedTotal}`}</div>
+        <div className="saved info">{`You Saved: $${formattedSaved}`}</div>
       </div>
     </aside>
   );

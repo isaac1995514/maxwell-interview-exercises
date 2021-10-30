@@ -17,6 +17,11 @@
   .selected-item__control {
     width: 30%;
     float: right;
+
+    .button:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba($focus-red, 0.4);
+    }
   }
 
   .image {
@@ -24,8 +29,7 @@
     margin-bottom: 5px;
   }
 
-  &:hover,
-  &:focus {
+  &:hover {
     transition: 0.5s ease;
     background-color: $hover-green;
     color: white;

@@ -29,7 +29,7 @@ function SelectionList({
         <div className="selected-item__info">
           <Image size="mini" src={item.imgSrc} />
           <div>{`${item?.itemName} x ${itemCount}`}</div>
-          <div>{`$ ${formattedItemPrice}`}</div>
+          <div>{`$${formattedItemPrice}`}</div>
         </div>
         <div className="selected-item__control">
           <Button
@@ -38,6 +38,7 @@ function SelectionList({
             color="red"
             icon="minus"
             size="mini"
+            tabIndex={0}
             onClick={() => onItemRemoval(item.id)}
           />
         </div>
