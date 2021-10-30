@@ -5,3 +5,4 @@ export * from "./SelectionSideMenu";
 export * from "./SelectionList";
 export * from "./MenuPlaceholder";
 export * from "./ListPlaceholder";
+export * from "./SelectionItem";

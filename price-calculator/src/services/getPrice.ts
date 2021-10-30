@@ -35,11 +35,10 @@ export function getTotalPrice(
  */
 export function getItemPrice(
   itemId: string,
-  itemMap: GroceryItemMap,
-  selectedItems: SelectedItemMap
+  itemCount: number,
+  itemMap: GroceryItemMap
 ) {
   const item = itemMap.get(itemId);
-  const itemCount = selectedItems[itemId];
 
   // Safe Guard
   if (item) {
@@ -68,7 +67,7 @@ export function getDiscountedPrice(
   selectedItems: SelectedItemMap
 ) {
   const totalPriceList = Object.keys(selectedItems).map((itemId) =>
-    getItemPrice(itemId, itemMap, selectedItems)
+    getItemPrice(itemId, selectedItems[itemId], itemMap)
   );
 
   return sum(totalPriceList);

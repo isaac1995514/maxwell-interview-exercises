@@ -1,7 +1,8 @@
 import React from "react";
 
 /* Components */
-import { List, Button, Image } from "semantic-ui-react";
+import { List } from "semantic-ui-react";
+import { SelectionItem } from "..";
 
 /* Types */
 import { SelectionListProps } from "./type";
@@ -16,33 +17,23 @@ function SelectionList({
   selectedItems,
   onItemRemoval,
 }: SelectionListProps) {
-  const itemNodes = Object.entries(selectedItems).map(([itemId, itemCount]) => {
+  const itemNodes = Object.keys(selectedItems).map((itemId) => {
     const item = itemMap.get(itemId);
-
     if (!item) return null;
 
-    const itemPrice = getItemPrice(item.id, itemMap, selectedItems);
-    const formattedItemPrice = itemPrice.toFixed(2);
+    const itemCount = selectedItems[itemId];
+
+    const itemPrice = getItemPrice(itemId, itemCount, itemMap);
 
     return (
-      <List.Item className="selected-item">
-        <div className="selected-item__info">
-          <Image size="mini" src={item.imgSrc} />
-          <div>{`${item?.itemName} x ${itemCount}`}</div>
-          <div>{`$${formattedItemPrice}`}</div>
-        </div>
-        <div className="selected-item__control">
-          <Button
-            floated="right"
-            circular
-            color="red"
-            icon="minus"
-            size="mini"
-            tabIndex={0}
-            onClick={() => onItemRemoval(item.id)}
-          />
-        </div>
-      </List.Item>
+      <SelectionItem
+        key={itemId}
+        itemId={itemId}
+        itemCount={itemCount}
+        itemPrice={itemPrice}
+        item={item}
+        onItemRemoval={onItemRemoval}
+      />
     );
   });
 
