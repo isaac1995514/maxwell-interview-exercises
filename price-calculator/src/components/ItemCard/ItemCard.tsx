@@ -7,7 +7,15 @@ import { ItemCardProps } from "./type";
 import "./style.scss";
 
 function ItemCard(props: ItemCardProps) {
-  const { id, itemName, unitPrice, salePrice, saleUnit, onItemClicked } = props;
+  const {
+    id,
+    itemName,
+    unitPrice,
+    salePrice,
+    saleUnit,
+    imgSrc,
+    onItemClicked,
+  } = props;
 
   const [isItemHovered, setIsItemHovered] = useState(false);
 
@@ -32,11 +40,7 @@ function ItemCard(props: ItemCardProps) {
       onMouseLeave={handleMouseLeave}
     >
       <Card onClick={handleClick} fluid>
-        <Image
-          src="https://img.icons8.com/external-photo3ideastudio-flat-photo3ideastudio/64/000000/external-milk-supermarket-photo3ideastudio-flat-photo3ideastudio.png"
-          wrapped
-          ui={false}
-        />
+        <Image src={imgSrc} wrapped ui={false} size="tiny" />
         <Card.Content textAlign="center">
           <Card.Header>{itemName}</Card.Header>
           <Card.Meta>Unit Price: ${unitPrice}</Card.Meta>
